@@ -36,7 +36,7 @@ yarn add express-export
 ```typescript jsx
 const server = express();
 
-ExportFile.applyMiddleware(server);
+ExpressExport.applyMiddleware(server);
 ```
 
 ### Add router

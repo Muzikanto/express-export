@@ -1,6 +1,6 @@
 {
    "name": "express-export",
-   "version": "1.0.0",
+   "version": "1.0.1",
    "description": "Export files",
    "license": "MIT",
    "maintainers": [
@@ -13,6 +13,7 @@
    "homepage": "https://github.com/Muzikanto/express-export/wiki",
    "keywords": [
       "export",
+      "express",
       "file",
       "format",
       "xml",

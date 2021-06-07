@@ -114,7 +114,7 @@ class ExportService {
     format = ExportFormat.json,
     filename,
     download = false
-  }: ExportOpts<T> & { format?: ExportFormat }) {
+  }: ExportOpts<T> & { format?: ExportFormat }): express.Response {
     switch (format) {
       case ExportFormat.csv:
         return this.exportCsv({ res, data, fields, filename, download });
@@ -133,7 +133,7 @@ class ExportService {
     res,
     filename,
     download
-  }: ExportOpts<T>) {
+  }: ExportOpts<T>): express.Response {
     res.set("Content-Type", "application/json");
     this.setDownloadHeader(res, `${filename || "unknown"}.json`, download);
 
@@ -146,7 +146,7 @@ class ExportService {
     res,
     filename,
     download
-  }: ExportOpts<T>) {
+  }: ExportOpts<T>): express.Response {
     res.set("Content-Type", "application/csv");
     this.setDownloadHeader(res, `${filename || "unknown"}.csv`, download);
 
@@ -159,7 +159,7 @@ class ExportService {
     res,
     filename,
     download
-  }: ExportOpts<T>) {
+  }: ExportOpts<T>): express.Response {
     res.set("Content-Type", "text/xml");
     this.setDownloadHeader(res, `${filename || "unknown"}.xml`, download);
 
@@ -186,7 +186,7 @@ class ExportService {
     return format in ExportFormat;
   }
 
-  public applyMiddleware(app: express.Express) {
+  public applyMiddleware(app: express.Express): express.Express {
     const instance = this;
 
     app.use(function(req, res: any, next) {
